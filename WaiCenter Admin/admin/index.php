@@ -1,9 +1,9 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['idUsuario'])){
-        header("location: login.php");
-        exit;
-    }
+session_start();
+if (!isset($_SESSION['idUsuario'])) {
+    header("location: login.php");
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Elite admin</p>
+            <p class="loader__label">WaitCenter</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -51,7 +51,7 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <?php include 'views/header.php';?>
+        <?php include 'views/header.php'; ?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -75,13 +75,13 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Dashboard 4</h4>
+                        <h4 class="text-themecolor">Dashboard</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard 4</li>
+                                <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                             <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
                         </div>
@@ -98,7 +98,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">TOTAL VISIT</h5>
+                                <h5 class="card-title">TOTAL DE SENHAS</h5>
                                 <div class="d-flex no-block align-items-center m-t-20 m-b-20">
                                     <div id="sparklinedash"></div>
                                     <div class="ml-auto">
@@ -113,11 +113,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">TOTAL PAGE VIEWS</h5>
+                                <h5 class="card-title">SENHAS CANCELADAS</h5>
                                 <div class="d-flex no-block align-items-center m-t-20 m-b-20">
                                     <div id="sparklinedash2"></div>
                                     <div class="ml-auto">
-                                        <h2 class="text-purple"><i class="ti-arrow-up"></i> <span class="counter">7469</span></h2>
+                                        <h2 class="text-purple"><i class="ti-arrow-up"></i> <span class="counter">469</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -128,11 +128,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">UNIQUE VISITOR</h5>
+                                <h5 class="card-title">TEMPO DE ESPERA</h5>
                                 <div class="d-flex no-block align-items-center m-t-20 m-b-20">
                                     <div id="sparklinedash3"></div>
                                     <div class="ml-auto">
-                                        <h2 class="text-info"><i class="ti-arrow-up"></i> <span class="counter">6011</span></h2>
+                                        <h2 class="text-info"><i class="ti-arrow-down"></i> <span class="counter">15 min</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -144,11 +144,11 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">BOUNCE RATE</h5>
+                                <h5 class="card-title">SENHAS ADIADAS</h5>
                                 <div class="d-flex no-block align-items-center m-t-20 m-b-20">
                                     <div id="sparklinedash4"></div>
                                     <div class="ml-auto">
-                                        <h2 class="text-danger"><i class="ti-arrow-down"></i> <span class="counter">18%</span></h2>
+                                        <h2 class="text-danger"><i class="ti-arrow-down"></i> <span class="counter">125</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -169,13 +169,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <h5 class="card-title m-b-40">SALES IN 2018</h5>
-                                        <p>Lorem ipsum dolor sit amet, ectetur adipiscing elit. viverra tellus. ipsumdolorsitda amet, ectetur adipiscing elit.</p>
-                                        <p>Ectetur adipiscing elit. viverra tellus.ipsum dolor sit amet, dag adg ecteturadipiscingda elitdglj. vadghiverra tellus.</p>
-                                    </div>
                                     <div class="col-md-8 col-sm-6 col-xs-12">
-                                        <div id="morris-area-chart" style="height:250px;"></div>
+                                        <h5 class="card-title">TRÁFEGO DE PESSOAS</h5>
+                                        <div id="morris-area-chart" style="height:400px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +194,9 @@
                             </div>
                             <div class="card-body bg-light">
                                 <div class="d-flex no-block align-items-center">
-                                    <span><h2 class="">Monday</h2><small>7th May 2017</small></span>
+                                    <span>
+                                        <h2 class="">Monday</h2><small>7th May 2017</small>
+                                    </span>
                                     <div class="ml-auto">
                                         <canvas class="sleet" width="44" height="44"></canvas> <span class="display-6">32<sup>°F</sup></span> </div>
                                 </div>
@@ -335,19 +333,26 @@
                                 <h5 class="card-title">FEEDS</h5>
                                 <ul class="feeds">
                                     <li>
-                                        <div class="bg-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span></li>
+                                        <div class="bg-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span>
+                                    </li>
                                     <li>
-                                        <div class="bg-success"><i class="ti-server"></i></div> Server #1 overloaded.<span class="text-muted">2 Hours ago</span></li>
+                                        <div class="bg-success"><i class="ti-server"></i></div> Server #1 overloaded.<span class="text-muted">2 Hours ago</span>
+                                    </li>
                                     <li>
-                                        <div class="bg-warning"><i class="ti-shopping-cart"></i></div> New order received.<span class="text-muted">31 May</span></li>
+                                        <div class="bg-warning"><i class="ti-shopping-cart"></i></div> New order received.<span class="text-muted">31 May</span>
+                                    </li>
                                     <li>
-                                        <div class="bg-danger"><i class="ti-user"></i></div> New user registered.<span class="text-muted">30 May</span></li>
+                                        <div class="bg-danger"><i class="ti-user"></i></div> New user registered.<span class="text-muted">30 May</span>
+                                    </li>
                                     <li>
-                                        <div class="bg-dark"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span></li>
+                                        <div class="bg-dark"><i class="fa fa-bell-o"></i></div> New Version just arrived. <span class="text-muted">27 May</span>
+                                    </li>
                                     <li>
-                                        <div class="bg-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span></li>
+                                        <div class="bg-info"><i class="fa fa-bell-o"></i></div> You have 4 pending tasks. <span class="text-muted">Just Now</span>
+                                    </li>
                                     <li>
-                                        <div class="bg-danger"><i class="ti-user"></i></div> New user registered.<span class="text-muted">30 May</span></li>
+                                        <div class="bg-danger"><i class="ti-user"></i></div> New user registered.<span class="text-muted">30 May</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
