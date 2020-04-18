@@ -42,13 +42,15 @@ class Usuario
   {
 
     global $pdo;
-    $sql = $pdo -> prepare("SELECT idUsuario FROM Usuario WHERE email = :e AND senha = :s");
+    $sql = $pdo -> prepare("SELECT * FROM Usuario WHERE email = :e AND senha = :s");
     $sql ->bindValue(":e",$email);
     $sql ->bindValue(":s",$senha);
     $sql -> execute();
     if($sql->rowCount()>0){
       $dado = $sql->fetch();
+      session_start();
       $_SESSION['idUsuario'] = $dado['idUsuario'];
+      $_SESSION['nome'] = $dado['nome'];
       return true;
     }else{
       return false;
