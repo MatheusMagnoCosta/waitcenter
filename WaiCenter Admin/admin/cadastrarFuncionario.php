@@ -4,7 +4,9 @@ if (!isset($_SESSION['idUsuario'])) {
     header("location: login.php");
     exit;
 }
-
+require_once 'CLASSES/usuarios.php';
+$u = new Usuario;
+$u->conectar("u963859304_waitcenter", "sql125.main-hosting.eu", "u963859304_waitcenter", "abacaxi");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -69,9 +71,8 @@ if (!isset($_SESSION['idUsuario'])) {
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                <li class="breadcrumb-item active">Form Wizards</li>
+                                <li class="breadcrumb-item active">Cadastrar Funcionario</li>
                             </ol>
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +87,7 @@ if (!isset($_SESSION['idUsuario'])) {
                         <div class="card">
                             <div class="card-body wizard-content">
                                 <h4 class="card-title">Cadastrar</h4>
-                                <form action="#" class="tab-wizard wizard-circle">
+                                <form action="#" method="POST" class="wizard-circle">
                                     <!-- Step 1 -->
                                     <h6>Informações pessoais</h6>
                                     <section>
@@ -94,57 +95,79 @@ if (!isset($_SESSION['idUsuario'])) {
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstName1">Nome :</label>
-                                                    <input type="text" class="form-control" id="firstName1"> </div>
+                                                    <input type="text" class="form-control" name="nome" id="firstName1"> </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lastName1">Sobrenome :</label>
-                                                    <input type="text" class="form-control" id="lastName1"> </div>
+                                                    <input type="text" class="form-control" name="sobrenome" id="lastName1"> </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="emailAddress1">Email :</label>
-                                                    <input type="email" class="form-control" id="emailAddress1"> </div>
+                                                    <input type="email" class="form-control" name="email" id="emailAddress1"> </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="phoneNumber1">Telefone :</label>
-                                                    <input type="tel" class="form-control" id="phoneNumber1"> </div>
+                                                    <input type="tel" class="form-control" name="telefone" id="phoneNumber1"> </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="location1">Cargo :</label>
-                                                    <select class="custom-select form-control" id="location1" name="location">
+                                                    <select class="custom-select" id="location1" name="cargo">
                                                         <option value="">Selecione o cargo </option>
-                                                        <option value="Amsterdam">Recepcionista</option>
-                                                        <option value="Berlin">Gerente</option>
-                                                        <option value="Frankfurt">Secretaria</option>
+                                                        <option value="Recepcionista">Recepcionista</option>
+                                                        <option value="Gerente">Gerente</option>
+                                                        <option value="Secretaria">Secretaria</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </section>
                                     <!-- Step 2 -->
-                                    <h6>Função</h6>
                                     <section>
                                         <div class="row">
                                             <div class="col-md-6">
-                                            <div class="form-group">
-                                                    <label for="location1">Ambiente :</label>
-                                                    <select class="custom-select form-control" id="location1" name="location">
+                                                <div class="form-group">
+                                                    <label for="location1">Ambiente de trabalho :</label>
+                                                    <select class="custom-select" id="location1" name="ambiente">
                                                         <option value="">Selecione o ambiente </option>
-                                                        <option value="Amsterdam">Recepção</option>
+                                                        <option value="recepcao">Recepção</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </section>
-                                    
+                                    <div class="col-xs-12">
+                                <button class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit">Cadastrar</button>
+                            </div>
+
                                 </form>
+
+                                <?php
+                                if (isset($_POST['nome'])) {
+                                    $nome = addslashes($_POST['nome']);
+                                    $sobrenome = addslashes($_POST['sobrenome']);
+                                    $telefone = addslashes($_POST['telefone']);
+                                    $cargo = addslashes($_POST['cargo']);
+                                    $ambiente = addslashes($_POST['ambiente']);
+                                    $email = addslashes($_POST['email']);
+                                    $senha = "AlterarSenha123@";
+                                    $nivel = "2";
+                                    if (!empty($nome) && !empty($email) && !empty($senha)) {
+                                        $u->cadastrar($nome, $email, $senha, $sobrenome, $telefone, $cargo, $ambiente, $nivel);
+                                    }
+                                }
+                                ?>
+
+
+
+
                             </div>
                         </div>
                     </div>

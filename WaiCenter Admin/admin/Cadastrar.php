@@ -83,7 +83,8 @@ $u->conectar("u963859304_waitcenter", "sql125.main-hosting.eu", "u963859304_wait
                                 $confSenha = addslashes($_POST['confSenha']);
                                 if (!empty($nome) && !empty($email) && !empty($senha)) {
                                     if ($senha == $confSenha) {
-                                        $u->cadastrar($nome, $email, $senha);
+                                        $u->cadastrar($nome, $email, $senha,'','','','admin','admin','0');
+                                        echo'<script>window.location.replace("./login.php");</script>';
                                     } else {
                                         echo "As senhas não são iguais, tente novamente";
                                     }

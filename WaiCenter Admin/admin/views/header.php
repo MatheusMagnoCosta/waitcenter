@@ -8,16 +8,16 @@
                 <!-- Logo icon --><b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                   <!-- <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
                     <!-- Light Logo icon -->
-                    <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                   <!-- <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text --><span>
                     <!-- dark Logo text -->
                     <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                     <!-- Light Logo text -->
-                    <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                    <img src="http://tylab.16mb.com/wp-content/uploads/2020/02/Asset-1@2x.png" style="width:60%;"class="light-logo" alt="homepage" /></span> </a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
@@ -125,7 +125,7 @@
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown u-pro">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../assets/images/users/1.jpg" alt="user" class="">
+                        <img src="https://via.placeholder.com/150" alt="user" class="">
                         <span class="hidden-md-down"><?php echo $_SESSION['nome']; ?>
                             <i class="fa fa-angle-down"></i>
                         </span>

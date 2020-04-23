@@ -18,7 +18,7 @@ class Usuario
     }
   }
 
-  public function cadastrar($nome, $email, $senha)
+  public function cadastrar($nome, $email, $senha,$sobrenome,$telefone,$cargo,$ambiente,$nivel)
   {
     global $pdo;
     $sql = $pdo->prepare("SELECT idUsuario FROM Usuario WHERE email = :e ");
@@ -28,12 +28,16 @@ class Usuario
       echo "Usuario já existente";
       return false;
     } else {
-      $sql = $pdo->prepare("INSERT INTO Usuario(nome,email,senha) VALUES (:n,:e,:s)");
+      $sql = $pdo->prepare("INSERT INTO Usuario(nome,email,senha,sobrenome,nivel,telefone,cargo,ambiente) VALUES (:n,:e,:s,:sn,:nv,:t,:c,:a)");
       $sql->bindValue(":n", $nome);
       $sql->bindValue(":e", $email);
       $sql->bindValue(":s", md5($senha));
+      $sql->bindValue(":sn", $sobrenome);
+      $sql->bindValue(":nv", $nivel);
+      $sql->bindValue(":t", $telefone);
+      $sql->bindValue(":c", $cargo);
+      $sql->bindValue(":a", $ambiente);
       $sql->execute();
-      echo "Cadastrado";
       return true;
     }
   }
@@ -51,6 +55,7 @@ class Usuario
       session_start();
       $_SESSION['idUsuario'] = $dado['idUsuario'];
       $_SESSION['nome'] = $dado['nome'];
+      $_SESSION['nivel'] = $dado['nivel'];
       return true;
     }else{
       return false;
