@@ -9,6 +9,7 @@
 ## Tecnologias usadas
 
 * [Bootstrap](https://getbootstrap.com.br/)
+* [php](https://www.php.net/)
 
 ## Desenvolvedores
 
